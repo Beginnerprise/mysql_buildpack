@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# bin/release <build-dir>
+# Make sure that our storage device is a mounted EBS volume
+
+MYSQL_DEFAULT_CONFIG_LOCATION="/etc/mysql/my.cnf"
+MYSQL_CONFIG_LOCATION="/home/ubuntu/app/my.cnf"
+
+[ ! -f "${MYSQL_CONFIG_LOCATION}" ] && cp "${MYSQL_DEFAULT_CONFIG_LOCATION}" "${MYSQL_CONFIG_LOCATION}"
+
+cat << EOF
+---
+default_process_types:
+  web: "/usr/bin/mysqld_safe --defaults-file=${MYSQL_CONFIG_LOCATION}"
+EOF

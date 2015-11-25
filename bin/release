@@ -10,5 +10,5 @@ MYSQL_CONFIG_LOCATION="/home/ubuntu/app/my.cnf"
 cat << EOF
 ---
 default_process_types:
-  web: "/usr/bin/mysqld_safe --defaults-file=${MYSQL_CONFIG_LOCATION}"
+  web: "sudo /usr/bin/mysqld_safe --defaults-file=${MYSQL_CONFIG_LOCATION}"
 EOF

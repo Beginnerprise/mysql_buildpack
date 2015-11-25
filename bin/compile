@@ -4,8 +4,8 @@
 # fail fast
 set -e
 
-sudo debconf-set-selections <<< 'mysql-server mysql-server/root_password password '
-sudo debconf-set-selections <<< 'mysql-server mysql-server/root_password_again password '
+echo mysql-server mysql-server/root_password password changeme | sudo debconf-set-selections
+echo mysql-server mysql-server/root_password_again password changeme | sudo debconf-set-selections
 sudo apt-get -y install mysql-server
 sudo /etc/init.d/mysql stop
 sudo stop mysql

@@ -9,3 +9,4 @@ echo mysql-server mysql-server/root_password_again password changeme | sudo debc
 sudo apt-get -y install mysql-server
 sudo /etc/init.d/mysql stop
 sudo stop mysql
+[ ! -d "/var/data/mysql" ] && sudo cp -r /var/lib/mysql /var/data/mysql
